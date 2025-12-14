@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>東京の明日の天気</title>
+  </head>
+  <body>
+    <h1>東京の明日の天気</h1>
+    <div id="tokyoWeather">ここに表示</div>
+ 
+    <script>
+      fetch('https://weather.tsukumijima.net/api/forecast?city=130010')
+        .then((response) => response.json())
+        .then((data) => {
+          const tomorrowForecast = data.forecasts[1];
+          var message = tomorrowForecast.telop;
+          var object = document.getElementById('tokyoWeather');
+          object.innerText = message;
+        });
+    </script>
+  </body>
+</html>
